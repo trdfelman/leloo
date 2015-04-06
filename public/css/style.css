@@ -1,0 +1,30 @@
+/**
+ * Created by User2 on 4/6/2015.
+ */
+@font-face {
+    font-family: MyFont;
+    src: local('MyFont'),local('MyFont'),url('font/letloose.ttf')format('truetype');
+}
+.navbar-default {
+    background-color: #5d4383;
+}
+.navbar {
+    text-transform: none;
+    font-family: MyFont;
+    font-weight: 700;
+}
+#bs-example-navbar-collapse-1 > ul > li:nth-child(2),#bs-example-navbar-collapse-1 > ul > li:nth-child(3) > a,#bs-example-navbar-collapse-1 > ul > li:nth-child(4) > a
+{
+    font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#page-top > header{
+    background: #fff;
+
+}
+#page-top > header > div > div > div > div > span.skills{
+    color: #545454;
+}
+.btn-outline {
+    background: #82bae5;
+    text-transform: uppercase;
+}
