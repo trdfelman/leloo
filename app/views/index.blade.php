@@ -5,11 +5,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
+                    {{--<img class="img-responsive" src="img/profile.png" alt="">--}}
                     <div class="intro-text">
-                        <span class="name">Start Bootstrap</span>
-                        <hr class="star-light">
-                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+                        {{--<span class="name">Leloo</span>--}}
+                        {{--<hr class="star-light">--}}
+                        <span class="skills">Lorem ipsum dolor sit amet, consectetuer</span>
                     </div>
                 </div>
             </div>
@@ -21,12 +21,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
-                    <hr class="star-primary">
+                    <h2>Know your location now!</h2>
+                    {{--<hr class="star-primary">--}}
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 portfolio-item">
+             <div class="col-lg-8 col-lg-offset-2 text-center">
+                                <a href="#" class="btn btn-lg btn-outline">
+                                    <i class="fa fa-download"></i> Go
+                                </a>
+                            </div>
+
+                {{--<div class="col-sm-4 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
@@ -85,7 +91,7 @@
                         </div>
                         <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
                     </a>
-                </div>
+                </div>--}}
             </div>
         </div>
     </section>
@@ -96,7 +102,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>About</h2>
-                    <hr class="star-light">
+                    {{--<hr class="star-light">--}}
                 </div>
             </div>
             <div class="row">
@@ -107,9 +113,9 @@
                     <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
+                    {{--<a href="#" class="btn btn-lg btn-outline">
                         <i class="fa fa-download"></i> Download Theme
-                    </a>
+                    </a>--}}
                 </div>
             </div>
         </div>
@@ -121,7 +127,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Contact Me</h2>
-                    <hr class="star-primary">
+                    {{--<hr class="star-primary">--}}
                 </div>
             </div>
             <div class="row">
@@ -238,7 +244,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <h2>Project Title</h2>
-                            <hr class="star-primary">
+                            {{--<hr class="star-primary">--}}
                             <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
@@ -275,7 +281,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <h2>Project Title</h2>
-                            <hr class="star-primary">
+                            {{--<hr class="star-primary">--}}
                             <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
@@ -312,7 +318,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <h2>Project Title</h2>
-                            <hr class="star-primary">
+                            {{--<hr class="star-primary">--}}
                             <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
@@ -349,7 +355,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <h2>Project Title</h2>
-                            <hr class="star-primary">
+                            {{--<hr class="star-primary">--}}
                             <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
@@ -386,7 +392,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <h2>Project Title</h2>
-                            <hr class="star-primary">
+                            {{--<hr class="star-primary">--}}
                             <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
@@ -423,7 +429,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <h2>Project Title</h2>
-                            <hr class="star-primary">
+                            {{--<hr class="star-primary">--}}
                             <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">

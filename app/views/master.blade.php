@@ -9,16 +9,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>Leloo</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{ asset('css/freelancer.css')  }}" rel="stylesheet">
+     <link href="{{ asset('css/style.css')  }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{ asset('font-awesome/css/font-awesome.min.css')  }}" rel="stylesheet" type="text/css">
+
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -42,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">Leloo</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
