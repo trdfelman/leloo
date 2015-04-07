@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +9,7 @@
     <meta name="author" content="">
 
     <title>Leloo</title>
+    <link rel="icon" href="{{ asset('img/icon.png') }}" type="image/x-icon">
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -54,10 +54,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
+                        <a href="#portfolio">Know location</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#about">Places</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
@@ -71,5 +71,4 @@
     @yield('content')
 
 </body>
-
 </html>

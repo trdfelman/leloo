@@ -28,3 +28,11 @@
     background: #82bae5;
     text-transform: uppercase;
 }
+.btn-success {
+    background-color: #82bae5;
+    border-color: #82bae5;
+}
+.btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
+    background-color: #329df0;
+    border-color: #329df0;
+}
