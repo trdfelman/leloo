@@ -32,7 +32,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <button onclick="getLocation()" class="btn btn-lg btn-success">Go</button><span id="status"></span>
+                git<span id="status"></span>
                 <div id="map_holder" >
                     <div id="mapcanvas" style="width: 100%; ">
 
