@@ -2,7 +2,7 @@
  * Created by User2 on 4/7/2015.
  */
 var x = document.getElementById("map_holder");
-
+getLocation();
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
