@@ -86,26 +86,16 @@ function createMarker(place) {
 
                         if (key.hasOwnProperty(key)) {
                             var obj = placedata.reviews[key];
-                           //console.log(obj)
                             console.log(placedata.reviews[key]["author_name"]+" "+placedata.reviews[key]["author_url"]+" "+placedata.reviews[key]["rating"]+" "+placedata.reviews[key]["text"]+" "+placedata.reviews[key]["time"]);
                             for (var prop in obj) {
                                 if (obj.hasOwnProperty(prop)) {
                                     if(prop === 'aspects'){
                                         for(var a in obj[prop]){
                                             if(obj[prop].hasOwnProperty(a)){
-                                               //console.log(a + " =>"+ obj[prop][a]);
-                                                for(var b in obj[prop][a]){
-                                                    if(obj[prop][a].hasOwnProperty(b)){
-                                      //                  console.log(b+"=>"+obj[prop][a][b]);
-                                                    }
-                                                }
+                                                console.log(obj[prop][a]["type"] +" => "+obj[prop][a]["rating"]);
                                             }
                                         }
                                     }
-
-
-                                  //  console.log(prop + " = " + obj[prop]);
-                                    //console.log(str);
                                 }
                             }
                         }
@@ -113,7 +103,7 @@ function createMarker(place) {
                     }
             }
             //alert(str);
-            document.getElementById("place_resutls").innerHTML=str;
+          //  document.getElementById("place_resutls").innerHTML=str;
         }
     });
 
