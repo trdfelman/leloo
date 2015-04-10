@@ -3,6 +3,7 @@
  */
 var x = document.getElementById("map_holder");
 var map;
+var infowindow;
 getLocation();
 function getLocation() {
     if (navigator.geolocation) {
@@ -16,6 +17,7 @@ function showPosition(position) {
 
     document.querySelector("#mapcanvas").style.height='300px';
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
     var myOptions = {
         zoom: 15,
         center: latlng,
@@ -25,7 +27,7 @@ function showPosition(position) {
     };
      map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
-    var infowindow = new google.maps.InfoWindow({
+    var infowindowmain = new google.maps.InfoWindow({
         map: map,
         position: latlng,
         content:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
@@ -40,7 +42,7 @@ function showPosition(position) {
     var request = {
         location: latlng,
         radius: 500,
-        types: ['store']
+        types: ['food']
     };
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
@@ -56,16 +58,73 @@ function callback(results, status) {
 }
 
 function createMarker(place) {
+
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location
     });
 
+
+    var requestdata = {
+        placeId: place.place_id
+    };
+    var service = new google.maps.places.PlacesService(map);
+    service.getDetails(requestdata, function(placedata, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            var str="";
+
+            var place_name = "<h1>"+placedata.name+"</h1>";
+            var place_address = "<h3>"+placedata.formatted_address+"</h3>";
+            var place_img_representation = "<img src='"+placedata.icon+"' />";
+            var place_internationa_phonenuber ="<p>"+placedata.international_phone_number +"</p>";
+            var place_rating ="<p>rating:"+placedata.rating+"</p>";
+            var place_website = "<a href='"+placedata.website+"' target='' >WEBSITE</a>"
+            var place_reviews ="<div>";
+            for (var key in placedata.reviews) {
+                    if(typeof key.hasOwnProperty(key) !== 'undefined'){
+
+                        if (key.hasOwnProperty(key)) {
+                            var obj = placedata.reviews[key];
+                           //console.log(obj)
+                            console.log(placedata.reviews[key]["author_name"]+" "+placedata.reviews[key]["author_url"]+" "+placedata.reviews[key]["rating"]+" "+placedata.reviews[key]["text"]+" "+placedata.reviews[key]["time"]);
+                            for (var prop in obj) {
+                                if (obj.hasOwnProperty(prop)) {
+                                    if(prop === 'aspects'){
+                                        for(var a in obj[prop]){
+                                            if(obj[prop].hasOwnProperty(a)){
+                                               //console.log(a + " =>"+ obj[prop][a]);
+                                                for(var b in obj[prop][a]){
+                                                    if(obj[prop][a].hasOwnProperty(b)){
+                                      //                  console.log(b+"=>"+obj[prop][a][b]);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+
+                                  //  console.log(prop + " = " + obj[prop]);
+                                    //console.log(str);
+                                }
+                            }
+                        }
+
+                    }
+            }
+            //alert(str);
+            document.getElementById("place_resutls").innerHTML=str;
+        }
+    });
+
+
+
+
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
+
 }
 
 function showError(error) {
