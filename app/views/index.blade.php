@@ -29,6 +29,9 @@
 
                     </div>
                  </div>
+                 <div id="placeres">
+
+                 </div>
 
             </div>
         </div>
@@ -532,8 +535,9 @@
     </div>
 </div>
 
-<!-- jQuery -->
-<script src="{{asset('js/jquery.js')}}"></script>
+<!-- jQuery
+<script src="{{asset('js/jquery.js')}}"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <!-- Geo location   -->
  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
