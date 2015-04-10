@@ -2,6 +2,7 @@
  * Created by User2 on 4/7/2015.
  */
 var x = document.getElementById("map_holder");
+var map;
 getLocation();
 function getLocation() {
     if (navigator.geolocation) {
@@ -11,15 +12,7 @@ function getLocation() {
     }
 }
 function showPosition(position) {
-    var s = document.querySelector('#status');
 
-    if (s.className == 'success') {
-        // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back
-        return;
-    }
-
-    s.innerHTML = "<div><br/>Found you!</div>";
-    s.className = 'success';
 
     document.querySelector("#mapcanvas").style.height='300px';
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -30,15 +23,44 @@ function showPosition(position) {
         navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+     map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
         title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
     });
+
+    var request = {
+        location: latlng,
+        radius: 500,
+        types: ['store']
+    };
+    infowindow = new google.maps.InfoWindow();
+    var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, callback);
 }
 
+function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+        }
+    }
+}
+
+function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+    });
+}
 
 function showError(error) {
     switch (error.code) {
