@@ -25,6 +25,12 @@ function showPosition(position) {
     };
      map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
+    var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: latlng,
+        content:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
+    });
+
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
