@@ -54,7 +54,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Know location</a>
+                        <a href="#portfolio">You are Here!</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">Places</a>
