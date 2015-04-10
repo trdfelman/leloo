@@ -23,21 +23,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Know your location now!</h2>
-                {{--
-                <hr class="star-primary">
-                --}}
+                <h2>You are here!</h2>
+                <div id="map_holder" >
+                    <div id="mapcanvas" style="width: 100%; ">
+
+                    </div>
+                 </div>
 
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                git<span id="status"></span>
-                <div id="map_holder" >
-                    <div id="mapcanvas" style="width: 100%; ">
 
-                    </div>
-                </div>
+
             </div>
 
             {{--
@@ -538,7 +536,7 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 
 <!-- Geo location   -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+ <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
 <script src="{{asset('js/h5utils.js')}}"></script>
 <script src="{{asset('js/h5geo.js')}}"></script>
 
@@ -546,7 +544,7 @@
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
 <!-- Plugin JavaScript -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="{{asset('js/classie.js')}}"></script>
 <script src="{{asset('js/cbpAnimatedHeader.js')}}"></script>
 
