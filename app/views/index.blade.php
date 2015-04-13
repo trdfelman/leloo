@@ -540,7 +540,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <!-- Geo location   -->
- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+ <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=geometry,places"></script>
 <script src="{{asset('js/h5utils.js')}}"></script>
 <script src="{{asset('js/h5geo.js')}}"></script>
 
