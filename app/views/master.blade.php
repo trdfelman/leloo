@@ -9,10 +9,11 @@
     <meta name="author" content="">
 
     <title>Leloo</title>
+
     <link rel="icon" href="{{ asset('img/icon.png') }}" type="image/x-icon">
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{ asset('css/freelancer.css')  }}" rel="stylesheet">
@@ -27,12 +28,89 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+
+    <link href="{{ asset('css/select2.min.css')  }}" rel="stylesheet" />
+    <script src="{{ asset('js/select2.min.js')  }}"></script>
+   {{-- <link href="{{ asset('css/selectize.bootstrap3.css')  }}" rel="stylesheet" />
+    --}}{{--<link href="{{ asset('css/selectize.css')  }}" rel="stylesheet" />--}}{{--
+    <script src="{{ asset('js/standalone/selectize.js')  }}"></script>--}}
+    <script type="text/javascript">
+               $(document).ready(function() {
+                                $("#selecta").select2();
+                                });
+
+                </script>
+
+   {{-- <script>
+            $(document).ready(function() {
+                $('#input-tags3').selectize({
+                    plugins: ['remove_button'],
+                    delimiter: ',',
+                    persist: false,
+                    create: function(input) {
+                        return {
+                            value: input,
+                            text: input
+                        }
+                    }
+                });
+            });
+        </script>--}}
+        <script>
+
+        var jqxhr = $.getJSON( "js/place_types.json", function() {
+            console.log( "success" );
+        })
+                .done(function() {
+                    console.log( "second success" );
+                })
+                .fail(function() {
+                    console.log( "error" );
+                })
+                .always(function() {
+                    console.log( "complete" );
+                });
+
+        // Perform other work here ...
+        /*$.getJSON('js/place_types.json', function(place_type) {
+                         var items =[];
+                         $.each(place_type.place_types,function(i, item){
+                             items.push('<option value="' + item.id + '">' *//*+ item.id + '</p><p>' *//*+ item.label + '</option>');
+
+                         });
+                         $('<select/>', {
+                             'class': 'js-example-basic-multiple form-control',
+                             'multiple': 'multiple',
+                             html: items.join('')
+                         }).appendTo('#select').select2();
+                     });*/
+                     $.getJSON("js/place_types.json",  function(place_type) {
+                         $("#selecta option").remove(); // Remove all <option> child tags.
+                         $.each(place_type.place_types, function(index, item) { // Iterates through a collection
+                             $("#selecta").append( // Append an object to the inside of the select box
+                                 $("<option></option>") // Yes you can do this.
+                                     .text(item.label)
+                                     .val(item.id)
+                             );
+                         });
+                     });
+
+        // Set another completion function for the request above
+        jqxhr.complete(function() {
+            console.log( "second complete" );
+        });
+
+        </script>
+
+</head>
 <body id="page-top" class="index">
   <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
