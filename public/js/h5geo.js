@@ -60,18 +60,23 @@ function callback(results, status) {
 function createMarker(place) {
 
     var placeLoc = place.geometry.location;
+
     var marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location
     });
-
 
     var requestdata = {
         placeId: place.place_id
     };
     var service = new google.maps.places.PlacesService(map);
     service.getDetails(requestdata, function(placedata, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
+       // alert( "\nstatus:"+ status+"\n error:"+google.maps.places.PlacesServiceStatus.ERROR+"\n INVALID_REQUEST: "+google.maps.places.PlacesServiceStatus.INVALID_REQUEST+"\n OK:"+google.maps.places.PlacesServiceStatus.OK+"\n OVER_QUERY_LIMIT:"+google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT+"\n NOT_FOUND: "+google.maps.places.PlacesServiceStatus.NOT_FOUND+"\n REQUEST_DENIED :"+google.maps.places.PlacesServiceStatus.REQUEST_DENIED+" \n UNKNOWN_ERROR: "+google.maps.places.PlacesServiceStatus.UNKNOWN_ERROR+"\n ZERO_RESULTS: "+google.maps.places.PlacesServiceStatus.ZERO_RESULTS );
+
+
+        if (status == google.maps.places.PlacesServiceStatus.OK)
+        {
+
             var str="";
 
             var place_name = "<h1>"+placedata.name+"</h1>";
@@ -80,7 +85,7 @@ function createMarker(place) {
             var place_internationa_phonenuber =(typeof placedata.international_phone_number !=='undefined')?"<p>"+placedata.international_phone_number +"</p>":"";
             var place_rating =(typeof placedata.rating !=='undefined')? "<p>Place Rating:"+placedata.rating+"</p>":"";
 
-            var place_website = "<a href='"+placedata.website+"' target='' >WEBSITE</a>"
+            var place_website =(typeof placedata.website !== 'undefined')? "<a href='"+placedata.website+"'>WEBSITE</a>":"";
             var review_author="";
             var review_text="";
             var overall_rating="";
@@ -93,7 +98,7 @@ function createMarker(place) {
                             console.log(placedata.reviews[key]["author_name"]+" "+placedata.reviews[key]["author_url"]+" "+placedata.reviews[key]["rating"]+" "+placedata.reviews[key]["text"]+" "+placedata.reviews[key]["time"]);
 
                              review_author =  (typeof placedata.reviews[key]["author_name"] !=='undefined')? " <a href='"+placedata.reviews[key]["author_url"]+"' > "+placedata.reviews[key]["author_name"]+"</a>":"d";
-                             review_text =  (typeof  placedata.reviews[key]["text"] !=='undefined')?"<p>"+placedata.reviews[key]["text"]+"</p>":"d";
+                             review_text =  (typeof  placedata.reviews[key]["text"] !=='undefined')?"<h6>"+placedata.reviews[key]["text"]+"</h6>":"d";
                              overall_rating =(typeof placedata.reviews[key]["rating"] !=='undefined')?"Review Overall rating: "+ placedata.reviews[key]["rating"]+"<br/>":"d";
                             for (var prop in obj) {
                                 if (obj.hasOwnProperty(prop)) {
@@ -112,13 +117,11 @@ function createMarker(place) {
                     }
             }
 
-            var placereview="";
-            if(review_author !==''){
-                placereview= "<div class='place_review'>"+review_author+review_text+overall_rating+specific_rating+"</div>";
-            }else{
-                placereview='';
+            var review_str="";
+            if(review_author !=='' ) {
+                review_str="<div class='place_review'>"+review_author+review_text+overall_rating+specific_rating+"</div>";
             }
-            var str_container = " <div class='col-lg-6 ' >   "+place_name+place_address+place_img_representation+place_internationa_phonenuber+place_rating+place_website +placereview+"</div>";
+            var str_container = " <div class='col-lg-6 ' >   "+place_name+place_address+place_img_representation+place_internationa_phonenuber+place_rating+place_website +review_str+"</div>";
             var textnode= document.createTextNode(str_container);
             document.getElementById("placeres").insertAdjacentHTML('beforeend',str_container);
 
