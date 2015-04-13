@@ -1,5 +1,5 @@
 /**
- * Created by User2 on 4/7/2015.
+ * Created by Jameshwart Villarmea Lopez on 4/7/2015.
  */
 var x = document.getElementById("map_holder");
 var map;
@@ -46,6 +46,7 @@ function showPosition(position) {
     });
     var request = {
         location: latlng,
+        //radius:800,
         rankBy: google.maps.places.RankBy.DISTANCE,
         types: ['bar']
     };
@@ -58,7 +59,7 @@ function showPosition(position) {
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-            if(checkRadiusDistance(results[i],latlng,500)){
+            if(checkRadiusDistance(results[i],latlng,825)){
                 createMarker(results[i]);
             }
         }
@@ -67,7 +68,7 @@ function callback(results, status) {
 
 
 function checkRadiusDistance(place,latlng,radius) {
-    return google.maps.geometry.spherical.computeDistanceBetween(place.geometry.location, latlng) < radius;
+    return google.maps.geometry.spherical.computeDistanceBetween(place.geometry.location, latlng) <= radius;
 }
 function createMarker(place) {
 
@@ -172,11 +173,14 @@ function getPlace_contenet(place) {
     content += '<table>';
     content += '<tr class="iw_table_row">';
     content += '<td style="text-align: right"><img class="hotelIcon" src="' + place.icon + '"/></td>';
-    content += '<td><b><a href="' + place.url + '">' + place.name + '</a></b></td></tr>';
+    var url=(typeof place.url !=='undefined')?place.url:'#';
+
+    content += '<td><b><a href="' + url + '">' + place.name + '</a></b></td></tr>';
     content += '<tr class="iw_table_row"><td class="iw_attribute_name">Address:</td><td>' + place.vicinity + '</td></tr>';
     if (place.formatted_phone_number) {
         content += '<tr class="iw_table_row"><td class="iw_attribute_name">Telephone:</td><td>' + place.formatted_phone_number + '</td></tr>';
     }
+    alert(place.rating+"james");
     if (place.rating) {
         var ratingHtml = '';
         for (var i = 0; i < 5; i++) {
@@ -187,7 +191,7 @@ function getPlace_contenet(place) {
             }
         }
         content += '<tr class="iw_table_row"><td class="iw_attribute_name">Rating:</td><td><span id="rating">' + ratingHtml + '</span></td></tr>';
-        alert(ratingHtml);
+
     }
     if (place.website) {
         var fullUrl = place.website;
