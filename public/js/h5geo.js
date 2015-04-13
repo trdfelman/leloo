@@ -4,6 +4,8 @@
 var x = document.getElementById("map_holder");
 var map;
 var infowindow;
+var latlng;
+
 getLocation();
 function getLocation() {
     if (navigator.geolocation) {
@@ -16,7 +18,7 @@ function showPosition(position) {
 
 
     document.querySelector("#mapcanvas").style.height='300px';
-    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var myOptions = {
         zoom: 15,
@@ -41,8 +43,7 @@ function showPosition(position) {
 
     var request = {
         location: latlng,
-        radius: 500,
-        rankby : google.maps.places.RankBy.DISTANCE,
+        rankBy: google.maps.places.RankBy.DISTANCE,
         types: ['bar']
     };
 
@@ -54,11 +55,17 @@ function showPosition(position) {
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-          createMarker(results[i]);
+            if(checkRadiusDistance(results[i],latlng,500)){
+                createMarker(results[i]);
+            }
         }
     }
 }
 
+
+function checkRadiusDistance(place,latlng,radius) {
+    return google.maps.geometry.spherical.computeDistanceBetween(place.geometry.location, latlng) < radius;
+}
 function createMarker(place) {
 
     var placeLoc = place.geometry.location;
@@ -97,18 +104,35 @@ function createMarker(place) {
 
                         if (key.hasOwnProperty(key)) {
                             var obj = placedata.reviews[key];
-                            console.log(placedata.reviews[key]["author_name"]+" "+placedata.reviews[key]["author_url"]+" "+placedata.reviews[key]["rating"]+" "+placedata.reviews[key]["text"]+" "+placedata.reviews[key]["time"]);
 
                              review_author =  (typeof placedata.reviews[key]["author_name"] !=='undefined')? " <a href='"+placedata.reviews[key]["author_url"]+"' > "+placedata.reviews[key]["author_name"]+"</a>":"d";
                              review_text =  (typeof  placedata.reviews[key]["text"] !=='undefined')?"<h6>"+placedata.reviews[key]["text"]+"</h6>":"d";
-                             overall_rating =(typeof placedata.reviews[key]["rating"] !=='undefined')?"Review Overall rating: "+ placedata.reviews[key]["rating"]+"<br/>":"d";
+
+                            var ratingHtml = '';
+                            for (var i = 0; i < 5; i++) {
+                                if (placedata.reviews[key]["rating"] < (i + 0.5)) {
+                                    ratingHtml += '&#10025;';
+                                } else {
+                                    ratingHtml += '&#10029;';
+                                }
+                            }
+                            overall_rating="Review Overall rating:  "+ratingHtml+"<br/>";
                             for (var prop in obj) {
                                 if (obj.hasOwnProperty(prop)) {
                                     if(prop === 'aspects'){
 
                                         for(var a in obj[prop]){
                                             if(obj[prop].hasOwnProperty(a)){
-                                                specific_rating +=(typeof obj[prop][a]["type"] !=='undefined')? obj[prop][a]["type"] +": "+obj[prop][a]["rating"]+"<br/>":"";
+
+                                                var ratehtml ='';
+                                                for(var i = 0; i < 5; i++){
+                                                    if (obj[prop][a]["rating"] < (i + 0.5)) {
+                                                        ratehtml += '&#10025;';
+                                                    } else {
+                                                        ratehtml += '&#10029;';
+                                                    }
+                                                }
+                                                specific_rating +=(typeof obj[prop][a]["type"] !=='undefined')? ucfirst(obj[prop][a]["type"])+": "+ratehtml+"<br/>":"";
                                             }
                                         }
                                     }
@@ -160,6 +184,7 @@ function getPlace_contenet(place) {
             }
         }
         content += '<tr class="iw_table_row"><td class="iw_attribute_name">Rating:</td><td><span id="rating">' + ratingHtml + '</span></td></tr>';
+        alert(ratingHtml);
     }
     if (place.website) {
         var fullUrl = place.website;
@@ -190,4 +215,9 @@ function showError(error) {
             x.innerHTML = "An unknown error occurred."
             break;
     }
+}
+
+function ucfirst(str) {
+    var firstLetter = str.substr(0, 1);
+    return firstLetter.toUpperCase() + str.substr(1);
 }
