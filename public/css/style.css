@@ -36,3 +36,6 @@
     background-color: #329df0;
     border-color: #329df0;
 }
+#page-top > header > div > div:nth-child(2) > div > span > span.selection > span > ul {
+    color: #303030;
+}
