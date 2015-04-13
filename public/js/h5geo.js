@@ -42,8 +42,10 @@ function showPosition(position) {
     var request = {
         location: latlng,
         radius: 500,
-        types: ['food']
+        rankby : google.maps.places.RankBy.DISTANCE,
+        types: ['bar']
     };
+
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
