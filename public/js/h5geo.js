@@ -40,7 +40,10 @@ function showPosition(position) {
         map: map,
         title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
     });
-
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent("You are here! (at least within a "+position.coords.accuracy+" meter radius)");
+        infowindow.open(map, this);
+    });
     var request = {
         location: latlng,
         rankBy: google.maps.places.RankBy.DISTANCE,
