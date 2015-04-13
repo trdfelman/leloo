@@ -52,7 +52,7 @@ function showPosition(position) {
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
+          createMarker(results[i]);
         }
     }
 }
@@ -75,24 +75,33 @@ function createMarker(place) {
             var str="";
 
             var place_name = "<h1>"+placedata.name+"</h1>";
-            var place_address = "<h3>"+placedata.formatted_address+"</h3>";
+            var place_address = "<h6>"+placedata.formatted_address+"</h6>";
             var place_img_representation = "<img src='"+placedata.icon+"' />";
-            var place_internationa_phonenuber ="<p>"+placedata.international_phone_number +"</p>";
-            var place_rating ="<p>rating:"+placedata.rating+"</p>";
+            var place_internationa_phonenuber =(typeof placedata.international_phone_number !=='undefined')?"<p>"+placedata.international_phone_number +"</p>":"";
+            var place_rating =(typeof placedata.rating !=='undefined')? "<p>Place Rating:"+placedata.rating+"</p>":"";
+
             var place_website = "<a href='"+placedata.website+"' target='' >WEBSITE</a>"
-            var place_reviews ="<div>";
+            var review_author="";
+            var review_text="";
+            var overall_rating="";
+            var specific_rating = "";
             for (var key in placedata.reviews) {
                     if(typeof key.hasOwnProperty(key) !== 'undefined'){
 
                         if (key.hasOwnProperty(key)) {
                             var obj = placedata.reviews[key];
                             console.log(placedata.reviews[key]["author_name"]+" "+placedata.reviews[key]["author_url"]+" "+placedata.reviews[key]["rating"]+" "+placedata.reviews[key]["text"]+" "+placedata.reviews[key]["time"]);
+
+                             review_author =  (typeof placedata.reviews[key]["author_name"] !=='undefined')? " <a href='"+placedata.reviews[key]["author_url"]+"' > "+placedata.reviews[key]["author_name"]+"</a>":"d";
+                             review_text =  (typeof  placedata.reviews[key]["text"] !=='undefined')?"<p>"+placedata.reviews[key]["text"]+"</p>":"d";
+                             overall_rating =(typeof placedata.reviews[key]["rating"] !=='undefined')?"Review Overall rating: "+ placedata.reviews[key]["rating"]+"<br/>":"d";
                             for (var prop in obj) {
                                 if (obj.hasOwnProperty(prop)) {
                                     if(prop === 'aspects'){
+
                                         for(var a in obj[prop]){
                                             if(obj[prop].hasOwnProperty(a)){
-                                                console.log(obj[prop][a]["type"] +" => "+obj[prop][a]["rating"]);
+                                                specific_rating +=(typeof obj[prop][a]["type"] !=='undefined')? obj[prop][a]["type"] +": "+obj[prop][a]["rating"]+"<br/>":"";
                                             }
                                         }
                                     }
@@ -102,8 +111,17 @@ function createMarker(place) {
 
                     }
             }
-            //alert(str);
-          //  document.getElementById("place_resutls").innerHTML=str;
+
+            var placereview="";
+            if(review_author !==''){
+                placereview= "<div class='place_review'>"+review_author+review_text+overall_rating+specific_rating+"</div>";
+            }else{
+                placereview='';
+            }
+            var str_container = " <div class='col-lg-6 ' >   "+place_name+place_address+place_img_representation+place_internationa_phonenuber+place_rating+place_website +placereview+"</div>";
+            var textnode= document.createTextNode(str_container);
+            document.getElementById("placeres").insertAdjacentHTML('beforeend',str_container);
+
         }
     });
 
@@ -114,6 +132,7 @@ function createMarker(place) {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
+
 
 }
 
