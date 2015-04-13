@@ -134,12 +134,46 @@ function createMarker(place) {
 
 
     google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
+        infowindow.setContent(getPlace_contenet(place));
         infowindow.open(map, this);
     });
 
 
 }
+function getPlace_contenet(place) {
+    var content = '';
+    content += '<table>';
+    content += '<tr class="iw_table_row">';
+    content += '<td style="text-align: right"><img class="hotelIcon" src="' + place.icon + '"/></td>';
+    content += '<td><b><a href="' + place.url + '">' + place.name + '</a></b></td></tr>';
+    content += '<tr class="iw_table_row"><td class="iw_attribute_name">Address:</td><td>' + place.vicinity + '</td></tr>';
+    if (place.formatted_phone_number) {
+        content += '<tr class="iw_table_row"><td class="iw_attribute_name">Telephone:</td><td>' + place.formatted_phone_number + '</td></tr>';
+    }
+    if (place.rating) {
+        var ratingHtml = '';
+        for (var i = 0; i < 5; i++) {
+            if (place.rating < (i + 0.5)) {
+                ratingHtml += '&#10025;';
+            } else {
+                ratingHtml += '&#10029;';
+            }
+        }
+        content += '<tr class="iw_table_row"><td class="iw_attribute_name">Rating:</td><td><span id="rating">' + ratingHtml + '</span></td></tr>';
+    }
+    if (place.website) {
+        var fullUrl = place.website;
+        var website = hostnameRegexp.exec(place.website);
+        if (website == null) {
+            website = 'http://' + place.website + '/';
+            fullUrl = website;
+        }
+        content += '<tr class="iw_table_row"><td class="iw_attribute_name">Website:</td><td><a href="' + fullUrl + '">' + website + '</a></td></tr>';
+    }
+    content += '</table>';
+    return content;
+}
+
 
 function showError(error) {
     switch (error.code) {
