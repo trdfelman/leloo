@@ -81,6 +81,7 @@ function showPosition(position) {
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+        document.getElementById("placeres").innerHTML="";
         for (var i = 0; i < results.length; i++) {
             if(checkRadiusDistance(results[i],latlng,825)){
                 createMarker(results[i]);
