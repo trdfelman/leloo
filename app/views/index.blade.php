@@ -4,7 +4,7 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div id="select" class="col-lg-12 text-center">
                 {{--<img class="img-responsive" src="img/profile.png" alt="">--}}
                 <div class="intro-text">
                     {{--<span class="name">Leloo</span>--}}
@@ -13,6 +13,14 @@
                     --}}
                     <span class="skills">Lorem ipsum dolor sit amet, consectetuer</span>
                 </div>
+                                                       {{ Form::select('opt', ['Places'], null, ['class' => 'js-example-basic-multiple form-control', 'multiple'=>'multiple','id'=>'selecta']) }}
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p></p>
+                    <button type="submit" class="btn btn-success btn-lg">Go</button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -22,101 +30,16 @@
 <section id="portfolio">
     <div class="container">
         <div class="row">
-            <div id="select" class="col-lg-12 text-center">
-
-{{-- <select class="js-example-basic-multiple" multiple="multiple" style="width: 300px;">
-                        <option value="AL">Alabama</option>
-                        <option value="AL">Alabama</option>
-                        <option value="AL">Alabama</option>
-                        <option value="WY">Wyoming</option>
-                    </select>--}}
-                    {{--<input id="input-tags3" type="text" value="web development,design"/>--}}
-
-                    {{--{{ Form::input('text', 'selecta', 'Hotels,Restaurants,Fastfood', ['id' => 'input-tags3'])}} --}}
-
-
-                   {{ Form::select('opt', ['Alabama', 'Philippines', 'Wyoming'], null, ['class' => 'js-example-basic-multiple form-control', 'multiple'=>'multiple','id'=>'selecta']) }}
-
+            <div class="col-lg-12 text-center">
                 <h2>You are here!</h2>
                 <div id="map_holder" >
                     <div id="mapcanvas" style="width: 100%; ">
 
                     </div>
                  </div>
-                 <div id="placeres">
-
-                 </div>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
 
 
             </div>
-
-            {{--
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/cake.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/game.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            --}}
         </div>
     </div>
 </section>
@@ -134,21 +57,9 @@
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <select class="form-control">
-                    <option selected>Find places near you</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go</button>
-                          </span>
-                </div>
-                <!-- /input-group -->
+               <div id="placeres">
 
+                                </div>
             </div>
         </div>
     </div>
