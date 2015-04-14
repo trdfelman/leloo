@@ -2,6 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfee5d32-de4a-4acb-817a-6c63dcc978b9" name="Default" comment="add show marker">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.amd.full.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.amd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/select2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.full.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.full.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/select2.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.bootstrap2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.bootstrap3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/selectize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/standalone/selectize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.legacy.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/selectize.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/standalone/selectize.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="8f25a600-964c-4f05-b77f-01d9d85ea120" name="Failed commit: Default" comment="commit" />
@@ -78,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selectize.bootstrap2.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="selectize.bootstrap2.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/selectize.bootstrap2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30195382" vertical-offset="0" max-vertical-offset="8381">
-              <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="8381">
+              <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -108,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hello.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hello.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/hello.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="816">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.35687023" vertical-offset="0" max-vertical-offset="816">
+              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -150,6 +167,7 @@
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/css/select2.min.css" />
         <option value="$PROJECT_DIR$/app/views/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/selectize.bootstrap2.css" />
       </list>
     </option>
   </component>
@@ -283,6 +301,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leloo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="leloo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commands" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -488,7 +524,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20347957" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19742814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.62153345" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -496,12 +534,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -857,14 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/hello.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="816">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.115385" vertical-offset="238" max-vertical-offset="9792">
@@ -915,8 +943,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/selectize.bootstrap2.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30195382" vertical-offset="0" max-vertical-offset="8381">
-          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="8381">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/hello.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35687023" vertical-offset="0" max-vertical-offset="816">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding />
         </state>
       </provider>
