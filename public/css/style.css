@@ -47,3 +47,6 @@
     width: 50px;
     height: 50px;
 }
+#page-top > header > div > div:nth-child(2) > div > span > span.selection > span > ul {
+    color: #303030;
+}

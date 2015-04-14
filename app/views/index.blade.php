@@ -22,7 +22,21 @@
 <section id="portfolio">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
+            <div id="select" class="col-lg-12 text-center">
+
+{{-- <select class="js-example-basic-multiple" multiple="multiple" style="width: 300px;">
+                        <option value="AL">Alabama</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AL">Alabama</option>
+                        <option value="WY">Wyoming</option>
+                    </select>--}}
+                    {{--<input id="input-tags3" type="text" value="web development,design"/>--}}
+
+                    {{--{{ Form::input('text', 'selecta', 'Hotels,Restaurants,Fastfood', ['id' => 'input-tags3'])}} --}}
+
+
+                   {{ Form::select('opt', ['Alabama', 'Philippines', 'Wyoming'], null, ['class' => 'js-example-basic-multiple form-control', 'multiple'=>'multiple','id'=>'selecta']) }}
+
                 <h2>You are here!</h2>
                 <div id="map_holder" >
                     <div id="mapcanvas" style="width: 100%; ">
@@ -534,10 +548,6 @@
         </div>
     </div>
 </div>
-
-<!-- jQuery
-<script src="{{asset('js/jquery.js')}}"></script> -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <!-- Geo location   -->
  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=geometry,places"></script>
