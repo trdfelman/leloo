@@ -2,23 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfee5d32-de4a-4acb-817a-6c63dcc978b9" name="Default" comment="add show marker">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.amd.full.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.amd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/select2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.full.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.full.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/select2.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/select2.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.bootstrap2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.bootstrap3.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/selectize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/standalone/selectize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/css/selectize.legacy.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/selectize.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/js/standalone/selectize.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="8f25a600-964c-4f05-b77f-01d9d85ea120" name="Failed commit: Default" comment="commit" />
@@ -128,8 +111,8 @@
       <file leaf-file-name="hello.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/hello.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35687023" vertical-offset="0" max-vertical-offset="816">
-              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+            <state vertical-scroll-proportion="-0.884" vertical-offset="357" max-vertical-offset="816">
+              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -516,10 +499,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.54723126" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44625407" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -951,8 +934,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/hello.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35687023" vertical-offset="0" max-vertical-offset="816">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        <state vertical-scroll-proportion="-0.884" vertical-offset="357" max-vertical-offset="816">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
           <folding />
         </state>
       </provider>
