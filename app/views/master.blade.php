@@ -42,7 +42,10 @@
         <script src="{{ asset('js/standalone/selectize.js')  }}"></script>--}}
         <script type="text/javascript">
                    $(document).ready(function() {
-                                    $("#selecta").select2();
+                                    $("#selecta").select2({
+                                        placeholder: "Select Places...",
+                                        allowClear: true
+                                    });
                                     });
 
                     </script>

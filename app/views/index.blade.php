@@ -13,7 +13,7 @@
                     --}}
                     <span class="skills">Lorem ipsum dolor sit amet, consectetuer</span>
                 </div>
-                                                       {{ Form::select('opt', ['Alabama', 'Philippines', 'Wyoming'], null, ['class' => 'js-example-basic-multiple form-control', 'multiple'=>'multiple','id'=>'selecta']) }}
+                                                       {{ Form::select('opt', ['Places'], null, ['class' => 'js-example-basic-multiple form-control', 'multiple'=>'multiple','id'=>'selecta']) }}
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center">
