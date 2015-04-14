@@ -203,7 +203,7 @@ function getPlace_contenet(place) {
     if (place.formatted_phone_number) {
         content += '<tr class="iw_table_row"><td class="iw_attribute_name">Telephone:</td><td>' + place.formatted_phone_number + '</td></tr>';
     }
-    alert(place.rating+"james");
+
     if (place.rating) {
         var ratingHtml = '';
         for (var i = 0; i < 5; i++) {
