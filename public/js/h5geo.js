@@ -1,12 +1,34 @@
 /**
  * Created by Jameshwart Villarmea Lopez on 4/7/2015.
  */
+
 var x = document.getElementById("map_holder");
 var map;
 var infowindow;
 var latlng;
+var selected;
 
-getLocation();
+$(document).ready(function() {
+    $("#selecta").select2({
+        placeholder: "Select Places...",
+        allowClear: true,
+        maximumSelectionSize: 5
+    });
+    $(document).change(function(){
+        console.log("Selected value is: "+$("#selecta").select2("val"));
+    });
+    $('#cmdSubmit').click(function(){
+        console.log("Selected value is: "+$("#selecta").select2("val"));
+        if ($("#selecta").select2("val")){
+            getLocation();
+        }
+        else{
+            alert('Please select Place/s')
+        }
+    });
+});
+
+/*getLocation();*/
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -44,11 +66,12 @@ function showPosition(position) {
         infowindow.setContent("You are here! (at least within a "+position.coords.accuracy+" meter radius)");
         infowindow.open(map, this);
     });
+    var selected = $("#selecta").select2("val");
     var request = {
         location: latlng,
         //radius:800,
         rankBy: google.maps.places.RankBy.DISTANCE,
-        types: ['bar']
+        types: selected
     };
 
     infowindow = new google.maps.InfoWindow();
@@ -228,3 +251,5 @@ function ucfirst(str) {
     var firstLetter = str.substr(0, 1);
     return firstLetter.toUpperCase() + str.substr(1);
 }
+
+

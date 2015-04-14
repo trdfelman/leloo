@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <p></p>
-                    <button type="submit" class="btn btn-success btn-lg">Go</button>
+                    <button id="cmdSubmit" type="submit" class="btn btn-success btn-lg">Go</button>
                 </div>
 
             </div>
