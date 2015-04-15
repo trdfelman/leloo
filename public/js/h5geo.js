@@ -9,6 +9,7 @@ var latlng;
 var selected;
 
 $(document).ready(function() {
+    $("#noSubmit").hide();
     $("#selecta").select2({
         placeholder: "Select Places...",
         allowClear: true,
@@ -18,18 +19,29 @@ $(document).ready(function() {
         console.log("Selected value is: "+$("#selecta").select2("val"));
     });
     $('#cmdSubmit').click(function(){
-        console.log("Selected value is: "+$("#selecta").select2("val"));
+
         if ($("#selecta").select2("val")){
+            $(this).hide();
+            $("#noSubmit").show();
             getLocation();
+
+            setTimeout(function(){
+                $("#noSubmit").hide();
+                $("#cmdSubmit").fadeIn();
+            },2000)
+
         }
         else{
             alert('Please select Place/s')
         }
+
+
     });
 });
 
 /*getLocation();*/
 function getLocation() {
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
@@ -77,11 +89,30 @@ function showPosition(position) {
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
+
+    findhim(latlng);
+
+}
+
+function findhim(point){
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({latLng: point}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+
+                var p_name = (results[0].name)?"Place name: "+results[0].name+"<br/>":'';
+                var p_address = (results[0].formatted_address)? "<h5>Your Location address:</h5><h6>"+results[0].formatted_address+"</h6":'';
+                document.getElementById("location_container").innerHTML=p_name+p_address;
+            }
+        }
+    });
+
+
 }
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        document.getElementById("placeres").innerHTML="";
+
         for (var i = 0; i < results.length; i++) {
             if(checkRadiusDistance(results[i],latlng,825)){
                 createMarker(results[i]);
@@ -108,8 +139,6 @@ function createMarker(place) {
     };
     var service = new google.maps.places.PlacesService(map);
     service.getDetails(requestdata, function(placedata, status) {
-       // alert( "\nstatus:"+ status+"\n error:"+google.maps.places.PlacesServiceStatus.ERROR+"\n INVALID_REQUEST: "+google.maps.places.PlacesServiceStatus.INVALID_REQUEST+"\n OK:"+google.maps.places.PlacesServiceStatus.OK+"\n OVER_QUERY_LIMIT:"+google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT+"\n NOT_FOUND: "+google.maps.places.PlacesServiceStatus.NOT_FOUND+"\n REQUEST_DENIED :"+google.maps.places.PlacesServiceStatus.REQUEST_DENIED+" \n UNKNOWN_ERROR: "+google.maps.places.PlacesServiceStatus.UNKNOWN_ERROR+"\n ZERO_RESULTS: "+google.maps.places.PlacesServiceStatus.ZERO_RESULTS );
-
 
         if (status == google.maps.places.PlacesServiceStatus.OK)
         {
@@ -181,7 +210,7 @@ function createMarker(place) {
 
         }
     });
-
+    document.getElementById("placeres").innerHTML="";
 
 
 
