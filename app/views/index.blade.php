@@ -61,8 +61,8 @@
                     <p  class="">Sort by :</p>
 
                     <div class="btn-group" role="group" aria-label="Default button group">
-                      <button type="button" class="sortby btn btn-success active">Distance</button>
-                      <button type="button" class="sortby btn btn-success ">Prominence</button>
+                      <button type="button" class="sortby btn btn-success active ">Prominence</button>
+                      <button type="button" class="sortby btn btn-success ">Distance</button>
                     </div>
             </div>
         </div>
