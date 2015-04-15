@@ -37,10 +37,9 @@ $(document).ready(function() {
 
         }
         else{
-            alert('Please select Place/s');
+            $('#alert-msg').html("<div class='alert alert-warning alert-dismissable'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button><strong>Ops!&nbsp;</strong>Please select place/s.</div>");
+
         }
-
-
     });
 
     $(".sortby").click(function(){

@@ -71,3 +71,10 @@
 #noSubmit{
     display: none;
 }
+section{
+    padding: 100px 0 50px !important;
+}
+.intro > p{
+    font-size: 32px;
+    color: #545454;
+}
