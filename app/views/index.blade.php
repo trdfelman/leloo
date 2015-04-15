@@ -12,6 +12,9 @@
                     <hr class="star-light">
                     --}}
                     <span class="skills">Lorem ipsum dolor sit amet, consectetuer</span>
+                    <div id="alert-msg">
+
+                    </div>
                 </div>
                                                        {{ Form::select('opt', ['Places'], null, ['class' => 'js-example-basic-multiple form-control', 'multiple'=>'multiple','id'=>'selecta']) }}
             </div>
@@ -20,14 +23,18 @@
                     <p></p>
                     <button id="cmdSubmit" type="submit" class="btn btn-success btn-lg">Go</button>
                 </div>
-
+                <div class="col-lg-12 text-center">
+                       <div class="intro-text">
+                            <span class="intro"><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui</p></span>
+                       </div>
+                </div>
             </div>
         </div>
     </div>
 </header>
 
 <!-- Portfolio Grid Section -->
-<section id="portfolio">
+<section id="portfolio" class="section-md">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">

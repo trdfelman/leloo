@@ -37,6 +37,7 @@
 
         <link href="{{ asset('css/select2.min.css')  }}" rel="stylesheet" />
         <script src="{{ asset('js/select2.min.js')  }}"></script>
+        <script src="{{ asset('js/clear.js')  }}"></script>
        {{-- <link href="{{ asset('css/selectize.bootstrap3.css')  }}" rel="stylesheet" />
         --}}{{--<link href="{{ asset('css/selectize.css')  }}" rel="stylesheet" />--}}{{--
         <script src="{{ asset('js/standalone/selectize.js')  }}"></script>--}}

@@ -23,7 +23,15 @@ $(document).ready(function() {
             getLocation();
         }
         else{
-            alert('Please select Place/s')
+
+            $('#alert-msg').html(
+                '<div class="alert alert-danger alert-dismissable">'+
+                '<button type="button" class="close" ' +
+                'data-dismiss="alert" aria-hidden="true">' +
+                '&times;' +
+                '</button>' +
+                '<Strong>Ops!&nbsp;</Strong>Please select Place/s.' +
+                '</div>');
         }
     });
 });
@@ -178,7 +186,6 @@ function createMarker(place) {
             var str_container = " <div class='col-lg-6 ' >   "+place_name+place_address+place_img_representation+place_internationa_phonenuber+place_rating+place_website +review_str+"</div>";
             var textnode= document.createTextNode(str_container);
             document.getElementById("placeres").insertAdjacentHTML('beforeend',str_container);
-
         }
     });
 

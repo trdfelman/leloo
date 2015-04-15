@@ -19,10 +19,12 @@
 }
 #page-top > header{
     background: #fff;
-
 }
-#page-top > header > div > div > div > div > span.skills{
-    color: #545454;
+.skills,.intro{
+    color: #545454 !important;
+}
+.intro >p{
+    font-size: 32px !important;
 }
 .btn-outline {
     background: #82bae5;
@@ -52,4 +54,7 @@
 }
 #select > span{
     width: 100% !important;
+}
+section {
+    padding: 100px 0 50px !important;
 }
