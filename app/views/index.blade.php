@@ -19,6 +19,8 @@
                 <div class="col-lg-12 text-center">
                     <p></p>
                     <button id="cmdSubmit" type="submit" class="btn btn-success btn-lg">Go</button>
+                    <button id="noSubmit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</button>
+
                 </div>
 
             </div>
@@ -34,6 +36,9 @@
                 <h2>You are here!</h2>
                 <div id="map_holder" >
                     <div id="mapcanvas" style="width: 100%; ">
+
+                    </div>
+                    <div id="location_container">
 
                     </div>
                  </div>
