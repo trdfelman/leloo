@@ -37,6 +37,7 @@
 
         <link href="{{ asset('css/select2.min.css')  }}" rel="stylesheet" />
         <script src="{{ asset('js/select2.min.js')  }}"></script>
+        <script src="{{ asset('js/clear.js')  }}"></script>
 
         <script type="text/javascript">
                          $.getJSON("js/place_types.json",  function(place_type) {

@@ -69,5 +69,7 @@
 }
 
 #noSubmit{
-    width: 100px;
+    display: none;
+    width: 50px;
+    color: #545454;
 }
