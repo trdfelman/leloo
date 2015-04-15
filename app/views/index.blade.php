@@ -58,6 +58,12 @@
                 {{--
                 <hr class="star-light">
                 --}}
+                    <p  class="">Sort by :</p>
+
+                    <div class="btn-group" role="group" aria-label="Default button group">
+                      <button type="button" class="sortby btn btn-success active">Distance</button>
+                      <button type="button" class="sortby btn btn-success ">Prominence</button>
+                    </div>
             </div>
         </div>
         <div class="row">
