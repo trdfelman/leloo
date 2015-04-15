@@ -70,4 +70,6 @@
 
 #noSubmit{
     display: none;
+    width: 50px;
+    color: #545454;
 }
