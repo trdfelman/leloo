@@ -7,7 +7,8 @@ var map;
 var infowindow;
 var latlng;
 var selected;
-
+var request;
+get_currentposition();
 $(document).ready(function() {
     $("#noSubmit").hide();
     $("#selecta").select2({
@@ -15,14 +16,18 @@ $(document).ready(function() {
         allowClear: true,
         maximumSelectionSize: 5
     });
-    $(document).change(function(){
-        console.log("Selected value is: "+$("#selecta").select2("val"));
-    });
+
     $('#cmdSubmit').click(function(){
 
         if ($("#selecta").select2("val")){
             $(this).hide();
             $("#noSubmit").show();
+            selected = $("#selecta").select2("val");
+            request = {
+                location: latlng,
+                rankBy: google.maps.places.RankBy.DISTANCE,
+                types: selected
+            };
             getLocation();
 
             setTimeout(function(){
@@ -32,14 +37,69 @@ $(document).ready(function() {
 
         }
         else{
-            alert('Please select Place/s')
+            alert('Please select Place/s');
         }
 
 
     });
+
+    $(".sortby").click(function(){
+        $(".sortby").removeClass("active");
+        $(this).addClass("active");
+
+        if(selected){
+           console.log(selected);
+            if($(this).text() ==='Distance'){
+
+                selected = $("#selecta").select2("val");
+                request = {
+                    location: latlng,
+                    rankBy: google.maps.places.RankBy.DISTANCE,
+                    types: selected
+                };
+
+                getLocation();
+            }else if($(this).text()==='Prominence'){
+
+                selected = $("#selecta").select2("val");
+                request = {
+                    location: latlng,
+                    radius:800,
+                    rankBy: google.maps.places.PROMINENCE,
+                    types: selected
+                };
+
+                getLocation();
+            }
+        }else{
+            alert('Please select Place/s');
+        }
+
+    });
 });
 
-/*getLocation();*/
+function get_currentposition(){
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(show_position, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function show_position(position){
+
+    latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    selected = $("#selecta").select2("val");
+    request = {
+        location: latlng,
+        radius:800,
+        rankBy: google.maps.places.PROMINENCE,
+        types: selected
+    };
+
+}
+
 function getLocation() {
 
     if (navigator.geolocation) {
@@ -78,13 +138,8 @@ function showPosition(position) {
         infowindow.setContent("You are here! (at least within a "+position.coords.accuracy+" meter radius)");
         infowindow.open(map, this);
     });
-    var selected = $("#selecta").select2("val");
-    var request = {
-        location: latlng,
-        //radius:800,
-        rankBy: google.maps.places.RankBy.DISTANCE,
-        types: selected
-    };
+
+     requesedt = request;
 
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
