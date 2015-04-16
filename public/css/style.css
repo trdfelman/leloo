@@ -19,7 +19,6 @@
 }
 #page-top > header{
     background: #fff;
-
 }
 #page-top > header > div > div > div > div > span.skills{
     color: #545454;
@@ -36,7 +35,6 @@
     background-color: #329df0;
     border-color: #329df0;
 }
-
 .place_review{
     border-radius: 2px 2px 2px 2px;
     -moz-border-radius: 2px 2px 2px 2px;
@@ -57,17 +55,14 @@
     -animation: spin .7s infinite linear;
     -webkit-animation: spin2 .7s infinite linear;
 }
-
 @-webkit-keyframes spin2 {
     from { -webkit-transform: rotate(0deg);}
     to { -webkit-transform: rotate(360deg);}
 }
-
 @keyframes spin {
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
 }
-
 #noSubmit{
     display: none;
 }
@@ -77,4 +72,17 @@ section{
 .intro > p{
     font-size: 32px;
     color: #545454;
+}
+.foot-nom{
+    font-family: MyFont;
+    color: #fff;
+}
+#page-top > footer > div.footer-below > div > div > div > a{
+    text-decoration: none;
+}
+#page-top > footer > div.footer-above > div > div > div{
+    margin-bottom: 30px;
+}
+#page-top > footer > div.footer-above{
+    padding-top: 20px;
 }
