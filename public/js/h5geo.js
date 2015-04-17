@@ -6,37 +6,44 @@ var x = document.getElementById("map_holder");
 var map;
 var infowindow;
 var latlng;
-var selected;
 var request;
-get_currentposition();
-$(document).ready(function() {
-    $("#noSubmit").hide();
+var selected;
+var sortyby ="PROMINENCE";
+var place_details_sortbyprominence=[];
+var place_details_sorbydistance = [];
+$(document).ready(function () {
+
     $("#selecta").select2({
         placeholder: "Select Places...",
         allowClear: true,
         maximumSelectionSize: 5
     });
 
-    $('#cmdSubmit').click(function(){
+    $(document).on("change","#selecta",function(){
+        selected = $("#selecta").select2("val");
+        request = {
+            location: latlng,
+            radius:800,
+            rankBy: google.maps.places.RankBy.PROMINENCE,
+            types: selected
+        };
 
-        if ($("#selecta").select2("val")){
+
+    });
+
+    $('#cmdSubmit').click(function () {
+
+        if ($("#selecta").select2("val")) {
             $(this).hide();
             $("#noSubmit").show();
-            selected = $("#selecta").select2("val");
-            request = {
-                location: latlng,
-                rankBy: google.maps.places.RankBy.DISTANCE,
-                types: selected
-            };
+
             getLocation();
 
-            setTimeout(function(){
+            setTimeout(function () {
                 $("#noSubmit").hide();
                 $("#cmdSubmit").fadeIn();
-            },2000)
-
-        }
-        else{
+            }, 2000)
+        } else {
             $('#alert-msg').html("<div class='alert alert-warning alert-dismissable'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button><strong>Ops!&nbsp;</strong>Please select place/s.</div>");
 
         }
@@ -46,58 +53,45 @@ $(document).ready(function() {
         $(".sortby").removeClass("active");
         $(this).addClass("active");
 
-        if(selected){
-           console.log(selected);
+
+
             if($(this).text() ==='Distance'){
 
-                selected = $("#selecta").select2("val");
-                request = {
-                    location: latlng,
-                    rankBy: google.maps.places.RankBy.DISTANCE,
-                    types: selected
-                };
+                if("leloo_by_distance" in localStorage){
+                    alert("Distance");
 
-                getLocation();
-            }else if($(this).text()==='Prominence'){
+                    display_sorted_results(localStorage.getItem("leloo_by_distance"))
+                }else{
 
-                selected = $("#selecta").select2("val");
-                request = {
-                    location: latlng,
-                    radius:800,
-                    rankBy: google.maps.places.PROMINENCE,
-                    types: selected
-                };
+                    if($("#selecta").select2("val")){
+                        request.types=selected;
+                        request.radius=null;
+                        request.rankBy =google.maps.places.RankBy.DISTANCE;
+                        getLocation();
+                    }
 
-                getLocation();
+                }
+
+            }else if($(this).text() ==='Popularity'){
+
+                if("leloo_by_prominence" in localStorage){
+                    alert("Prominence");
+                    display_sorted_results(localStorage.getItem("leloo_by_prominence"))
+                }else{
+                    if($("#selecta").select2("val")){
+                        request.types=selected;
+                        request.radius=800;
+                        request.rankBy =google.maps.places.RankBy.PROMINENCE;
+                        getLocation();
+                    }
+
+                }
             }
-        }else{
-            alert('Please select Place/s');
-        }
+
 
     });
 });
 
-function get_currentposition(){
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(show_position, showError);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function show_position(position){
-
-    latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    selected = $("#selecta").select2("val");
-    request = {
-        location: latlng,
-        radius:800,
-        rankBy: google.maps.places.PROMINENCE,
-        types: selected
-    };
-
-}
 
 function getLocation() {
 
@@ -107,39 +101,41 @@ function getLocation() {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
+
 function showPosition(position) {
 
 
-    document.querySelector("#mapcanvas").style.height='300px';
+    document.querySelector("#mapcanvas").style.height = '300px';
     latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var myOptions = {
         zoom: 15,
         center: latlng,
         mapTypeControl: false,
-        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL} ,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-     map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+    map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
     var infowindowmain = new google.maps.InfoWindow({
         map: map,
         position: latlng,
-        content:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
+        content: "You are here! (at least within a " + position.coords.accuracy + " meter radius)"
     });
 
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
-        title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
+        title: "You are here! (at least within a " + position.coords.accuracy + " meter radius)"
     });
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent("You are here! (at least within a "+position.coords.accuracy+" meter radius)");
+    google.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent("You are here! (at least within a " + position.coords.accuracy + " meter radius)");
         infowindow.open(map, this);
     });
 
-     requesedt = request;
+    request.location = latlng;
 
+    selected = $("#selecta").select2("val");
     infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, callback);
@@ -148,15 +144,15 @@ function showPosition(position) {
 
 }
 
-function findhim(point){
+function findhim(point) {
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({latLng: point}, function(results, status) {
+    geocoder.geocode({latLng: point}, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[0]) {
 
-                var p_name = (results[0].name)?"Place name: "+results[0].name+"<br/>":'';
-                var p_address = (results[0].formatted_address)? "<h5>Your Location address:</h5><h6>"+results[0].formatted_address+"</h6":'';
-                document.getElementById("location_container").innerHTML=p_name+p_address;
+                var p_name = (results[0].name) ? "Place name: " + results[0].name + "<br/>" : '';
+                var p_address = (results[0].formatted_address) ? "<h5>Your Location address:</h5><h6>" + results[0].formatted_address + "</h6" : '';
+                document.getElementById("location_container").innerHTML = p_name + p_address;
             }
         }
     });
@@ -175,10 +171,11 @@ function callback(results, status) {
     }
 }
 
-
 function checkRadiusDistance(place,latlng,radius) {
     return google.maps.geometry.spherical.computeDistanceBetween(place.geometry.location, latlng) <= radius;
 }
+
+
 function createMarker(place) {
 
     var placeLoc = place.geometry.location;
@@ -191,82 +188,33 @@ function createMarker(place) {
     var requestdata = {
         placeId: place.place_id
     };
+
+    document.getElementById("placeres").innerHTML="";
     var service = new google.maps.places.PlacesService(map);
     service.getDetails(requestdata, function(placedata, status) {
 
         if (status == google.maps.places.PlacesServiceStatus.OK)
         {
 
-            var str="";
+           // console.log(JSON.stringify(placedata))
+            if(request.rankBy === google.maps.places.RankBy.PROMINENCE){
+                place_details_sortbyprominence.push((placedata));
 
-            var place_name = "<h1>"+placedata.name+"</h1>";
-            var place_address = "<h6>"+placedata.formatted_address+"</h6>";
-            var place_img_representation = "<img src='"+placedata.icon+"' />";
-            var place_internationa_phonenuber =(typeof placedata.international_phone_number !=='undefined')?"<p>"+placedata.international_phone_number +"</p>":"";
-            var place_rating =(typeof placedata.rating !=='undefined')? "<p>Place Rating:"+placedata.rating+"</p>":"";
+                //document.getElementById("json_container_prominence").innerHTML=(JSON.stringify(place_details_sortbyprominence));
+                localStorage.setItem("leloo_by_prominence",JSON.stringify(place_details_sortbyprominence));
+                display_sorted_results(localStorage.getItem("leloo_by_prominence"));
 
-            var place_website =(typeof placedata.website !== 'undefined')? "<a href='"+placedata.website+"'>WEBSITE</a>":"";
-            var review_author="";
-            var review_text="";
-            var overall_rating="";
-            var specific_rating = "";
-            for (var key in placedata.reviews) {
-                    if(typeof key.hasOwnProperty(key) !== 'undefined'){
+            }else if(request.rankBy === google.maps.places.RankBy.DISTANCE){
+                place_details_sorbydistance.push((placedata));
 
-                        if (key.hasOwnProperty(key)) {
-                            var obj = placedata.reviews[key];
+                //document.getElementById("json_container_distance").innerHTML=(JSON.stringify(place_details_sorbydistance));
+                localStorage.setItem("leloo_by_distance",JSON.stringify(place_details_sorbydistance));
+                display_sorted_results(localStorage.getItem("leloo_by_distance"));
 
-                             review_author =  (typeof placedata.reviews[key]["author_name"] !=='undefined')? " <a href='"+placedata.reviews[key]["author_url"]+"' > "+placedata.reviews[key]["author_name"]+"</a>":"d";
-                             review_text =  (typeof  placedata.reviews[key]["text"] !=='undefined')?"<h6>"+placedata.reviews[key]["text"]+"</h6>":"d";
-
-                            var ratingHtml = '';
-                            for (var i = 0; i < 5; i++) {
-                                if (placedata.reviews[key]["rating"] < (i + 0.5)) {
-                                    ratingHtml += '&#10025;';
-                                } else {
-                                    ratingHtml += '&#10029;';
-                                }
-                            }
-                            overall_rating="Review Overall rating:  "+ratingHtml+"<br/>";
-                            for (var prop in obj) {
-                                if (obj.hasOwnProperty(prop)) {
-                                    if(prop === 'aspects'){
-
-                                        for(var a in obj[prop]){
-                                            if(obj[prop].hasOwnProperty(a)){
-
-                                                var ratehtml ='';
-                                                for(var i = 0; i < 5; i++){
-                                                    if (obj[prop][a]["rating"] < (i + 0.5)) {
-                                                        ratehtml += '&#10025;';
-                                                    } else {
-                                                        ratehtml += '&#10029;';
-                                                    }
-                                                }
-                                                specific_rating +=(typeof obj[prop][a]["type"] !=='undefined')? ucfirst(obj[prop][a]["type"])+": "+ratehtml+"<br/>":"";
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                    }
             }
-
-            var review_str="";
-            if(review_author !=='' ) {
-                review_str="<div class='place_review'>"+review_author+review_text+overall_rating+specific_rating+"</div>";
-            }
-            var str_container = " <div class='col-lg-6 ' >   "+place_name+place_address+place_img_representation+place_internationa_phonenuber+place_rating+place_website +review_str+"</div>";
-            var textnode= document.createTextNode(str_container);
-            document.getElementById("placeres").insertAdjacentHTML('beforeend',str_container);
 
         }
     });
-    document.getElementById("placeres").innerHTML="";
-
-
 
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(getPlace_contenet(place));
@@ -275,6 +223,47 @@ function createMarker(place) {
 
 
 }
+function display_sorted_results(localstorage_data){
+
+    var data = localstorage_data.replace(/"\\&quot;/g,"'").replace(/\\&quot;"/g,"'");
+
+    data = JSON.parse(data);
+    document.getElementById("places").innerHTML="";
+    var str_container="";
+    for(var i = 0 ; i < data.length ; i++){
+
+        var placedata= data[i];
+
+        var place_name = "<h1>"+placedata.name+"</h1>";
+        var place_address = "<h6>"+placedata.formatted_address+"</h6>";
+        var place_img_representation = "<img src='"+placedata.icon+"' />";
+        var place_internationa_phonenuber =(typeof placedata.international_phone_number !=='undefined')?"<p>"+placedata.international_phone_number +"</p>":"";
+
+
+        var place_rating =(typeof placedata.rating !=='undefined')? "<p>Rating based on aggregated user reviews:"+rating_display(placedata.rating)+"</p>":"";
+        var place_website =(typeof placedata.website !== 'undefined')? "<a href='"+placedata.website+"'>WEBSITE</a>":"";
+
+        var user_reviews = "";
+        if(typeof placedata.reviews !=='undefined'){
+            for(var j = 0 ; j < placedata.reviews.length; j ++){
+
+                var place_reviews = placedata.reviews[j];
+                var review_author = "<h5>"+place_reviews.author_name+"</h5>";
+                var review_authorlink = (typeof place_reviews.author_url !=='undefined')? "<a href='"+place_reviews.author_url+"'>"+review_author+"</a>":"<a href='#'>"+review_author+"</a>";
+                var review_rating ="<p style='font-size: 15px;'>Rating:"+ rating_display(place_reviews.rating)+"</p>";
+                var review_text = "<p style='font-size: 12px;'>"+place_reviews.text+"</p>";
+
+                 user_reviews +="<li class='list-group-item' style='color: #333;'>"+review_authorlink+review_rating+review_text+"</li>";
+            }
+        }
+
+        var final_users_review = "<ul class='list-group'>"+user_reviews+"</ul>";
+        str_container += "<div class='col-lg-6 '>"+place_name+place_address+place_img_representation+place_internationa_phonenuber+place_rating+place_website + final_users_review +"</div>";
+    }
+
+    document.getElementById("placeres").innerHTML=str_container;
+}
+
 function getPlace_contenet(place) {
     var content = '';
     content += '<table>';
@@ -289,15 +278,8 @@ function getPlace_contenet(place) {
     }
 
     if (place.rating) {
-        var ratingHtml = '';
-        for (var i = 0; i < 5; i++) {
-            if (place.rating < (i + 0.5)) {
-                ratingHtml += '&#10025;';
-            } else {
-                ratingHtml += '&#10029;';
-            }
-        }
-        content += '<tr class="iw_table_row"><td class="iw_attribute_name">Rating:</td><td><span id="rating">' + ratingHtml + '</span></td></tr>';
+        rating_display(place.rating);
+        content += '<tr class="iw_table_row"><td class="iw_attribute_name">Rating:</td><td><span id="rating">' +  rating_display(place.rating); + '</span></td></tr>';
 
     }
     if (place.website) {
@@ -336,4 +318,16 @@ function ucfirst(str) {
     return firstLetter.toUpperCase() + str.substr(1);
 }
 
+function rating_display(rating){
+    var html_rating="";
+    for (var i = 0; i < 5; i++) {
+        if (rating < (i + 0.5)) {
+            html_rating += '&#10025;';
+        } else {
+            html_rating += '&#10029;';
+        }
+    }
+
+    return html_rating;
+}
 
