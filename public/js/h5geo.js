@@ -12,8 +12,6 @@ var sortyby ="PROMINENCE";
 var place_details_sortbyprominence=[];
 var place_details_sorbydistance = [];
 $(document).ready(function () {
-    $("#mnu_1,#mnu_2,#your,#about,#h_place,#btn-group-places").css("display","none");
-
     $("#selecta").select2({
         placeholder: "Select Places...",
         allowClear: true,
@@ -33,9 +31,9 @@ $(document).ready(function () {
     });
 
     $('#cmdSubmit').click(function () {
-        $("#mnu_1,#your").css("display","");
-        /*localStorage.removeItem("leloo_by_prominence");
-        localStorage.removeItem("leloo_by_distance");*/
+        $("#mnu_1,#your").css("display","block");
+        localStorage.removeItem("leloo_by_prominence");
+        localStorage.removeItem("leloo_by_distance");
         if ($("#selecta").select2("val")) {
             $(this).hide();
             $("#noSubmit").show();
@@ -173,7 +171,8 @@ function callback(results, status) {
 
         $('#alert-msg').html("<div class='alert alert-success alert-dismissable'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Returned <strong>" + results.length + "</strong> results</div>");
 
-        $("#mnu_2,#about,#h_place,#btn-group-places").css("display","");
+        $("#mnu_2,#about,#h_place,#btn-group-places").css("display","block");
+        $("#btn-group-places").css("display","inline-block");
     }
     else
     {
@@ -249,7 +248,7 @@ function display_sorted_results(localstorage_data){
 
 
         var place_rating =(typeof placedata.rating !=='undefined')? "<p>Rating based on aggregated user reviews:"+rating_display(placedata.rating)+"</p>":"";
-        var place_website =(typeof placedata.website !== 'undefined')? "<a href='"+placedata.website+"'>WEBSITE</a>":"";
+        var place_website =(typeof placedata.website !== 'undefined')? "<br/><a style='color:#324c73;' href='"+placedata.website+"'>VISIT WEBSITE</a>":"";
 
         var user_reviews = "";
         if(typeof placedata.reviews !=='undefined'){
