@@ -58,8 +58,6 @@ $(document).ready(function () {
             if($(this).text() ==='Distance'){
 
                 if("leloo_by_distance" in localStorage){
-                    alert("Distance");
-
                     display_sorted_results(localStorage.getItem("leloo_by_distance"))
                 }else{
 
@@ -75,7 +73,7 @@ $(document).ready(function () {
             }else if($(this).text() ==='Popularity'){
 
                 if("leloo_by_prominence" in localStorage){
-                    alert("Prominence");
+
                     display_sorted_results(localStorage.getItem("leloo_by_prominence"))
                 }else{
                     if($("#selecta").select2("val")){
@@ -196,18 +194,14 @@ function createMarker(place) {
         if (status == google.maps.places.PlacesServiceStatus.OK)
         {
 
-           // console.log(JSON.stringify(placedata))
+
             if(request.rankBy === google.maps.places.RankBy.PROMINENCE){
                 place_details_sortbyprominence.push((placedata));
-
-                //document.getElementById("json_container_prominence").innerHTML=(JSON.stringify(place_details_sortbyprominence));
                 localStorage.setItem("leloo_by_prominence",JSON.stringify(place_details_sortbyprominence));
                 display_sorted_results(localStorage.getItem("leloo_by_prominence"));
 
             }else if(request.rankBy === google.maps.places.RankBy.DISTANCE){
                 place_details_sorbydistance.push((placedata));
-
-                //document.getElementById("json_container_distance").innerHTML=(JSON.stringify(place_details_sorbydistance));
                 localStorage.setItem("leloo_by_distance",JSON.stringify(place_details_sorbydistance));
                 display_sorted_results(localStorage.getItem("leloo_by_distance"));
 
