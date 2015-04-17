@@ -91,3 +91,7 @@ section{
     font-weight: 600;
     float: left;
 }
+
+#mnu_1,#mnu_2,#your,#about,#h_place,#btn-group-places{
+    display:none;
+}
