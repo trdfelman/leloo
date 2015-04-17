@@ -86,3 +86,8 @@ section{
 #page-top > footer > div.footer-above{
     padding-top: 20px;
 }
+#location_container > p{
+    font-size: 2em;
+    font-weight: 600;
+    float: left;
+}

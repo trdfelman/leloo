@@ -12,6 +12,7 @@ var sortyby ="PROMINENCE";
 var place_details_sortbyprominence=[];
 var place_details_sorbydistance = [];
 $(document).ready(function () {
+    $("#mnu_1,#mnu_2,#your,#about,#h_place,#btn-group-places").css("display","none");
 
     $("#selecta").select2({
         placeholder: "Select Places...",
@@ -32,7 +33,9 @@ $(document).ready(function () {
     });
 
     $('#cmdSubmit').click(function () {
-
+        $("#mnu_1,#your").css("display","");
+        /*localStorage.removeItem("leloo_by_prominence");
+        localStorage.removeItem("leloo_by_distance");*/
         if ($("#selecta").select2("val")) {
             $(this).hide();
             $("#noSubmit").show();
@@ -149,7 +152,8 @@ function findhim(point) {
             if (results[0]) {
 
                 var p_name = (results[0].name) ? "Place name: " + results[0].name + "<br/>" : '';
-                var p_address = (results[0].formatted_address) ? "<h5>Your Location address:</h5><h6>" + results[0].formatted_address + "</h6" : '';
+                var p_address = (results[0].formatted_address) ? "<p>" + results[0].formatted_address + "<p>" : '';
+
                 document.getElementById("location_container").innerHTML = p_name + p_address;
             }
         }
@@ -166,6 +170,16 @@ function callback(results, status) {
                 createMarker(results[i]);
             }
         }
+
+        $('#alert-msg').html("<div class='alert alert-success alert-dismissable'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Returned <strong>" + results.length + "</strong> results</div>");
+
+        $("#mnu_2,#about,#h_place,#btn-group-places").css("display","");
+    }
+    else
+    {
+        $('#alert-msg').html("<div class='alert alert-danger alert-dismissable'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Returned <strong>" + results.length + "</strong> results</div>");
+        $("#mnu_2,#about,#h_place,#btn-group-places").css("display","none");
+
     }
 }
 

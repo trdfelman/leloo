@@ -76,13 +76,13 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="page-scroll">
+                    <li id="mnu_1" class="page-scroll">
                         <a href="#portfolio">You are Here!</a>
                     </li>
-                    <li class="page-scroll">
+                    <li id="mnu_2" class="page-scroll">
                         <a href="#about">Places</a>
                     </li>
-                    <li class="page-scroll">
+                    <li id="mnu_3" class="page-scroll">
                         <a href="#contact">Contact</a>
                     </li>
                 </ul>

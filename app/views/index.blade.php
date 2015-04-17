@@ -40,7 +40,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>You are here!</h2>
+                <h2 id="your">You are here!</h2>
                 <div id="map_holder" >
                     <div id="mapcanvas" style="width: 100%; ">
 
@@ -61,13 +61,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Places</h2>
+                <h2 id="h_place">Places</h2>
                 {{--
                 <hr class="star-light">
                 --}}
                     <p  class="">Sort by :</p>
 
-                    <div class="btn-group" role="group" aria-label="Default button group">
+                    <div id="btn-group-places" class="btn-group" role="group" aria-label="Default button group">
                       <button type="button" class="sortby btn btn-success active ">Popularity</button>
                       <button type="button" class="sortby btn btn-success ">Distance</button>
                     </div>
