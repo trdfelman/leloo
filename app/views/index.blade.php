@@ -68,16 +68,21 @@
                     <p  class="">Sort by :</p>
 
                     <div class="btn-group" role="group" aria-label="Default button group">
-                      <button type="button" class="sortby btn btn-success active ">Prominence</button>
+                      <button type="button" class="sortby btn btn-success active ">Popularity</button>
                       <button type="button" class="sortby btn btn-success ">Distance</button>
                     </div>
+                    <div id="places">
+
+                    </div>
+            </div>
+            <div id="json_container_prominence" style="color:red;"> </div>
+            <div id="json_container_distance" style="color:blue;">
+
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-               <div id="placeres">
 
-                                </div>
             </div>
         </div>
     </div>
