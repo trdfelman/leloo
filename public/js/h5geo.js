@@ -32,6 +32,8 @@ $(document).ready(function () {
 
     $('#cmdSubmit').click(function () {
         $("#mnu_1,#your").css("display","block");
+        place_details_sortbyprominence =[];
+        place_details_sorbydistance = [];
         localStorage.removeItem("leloo_by_prominence");
         localStorage.removeItem("leloo_by_distance");
         if ($("#selecta").select2("val")) {
