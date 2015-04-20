@@ -93,7 +93,7 @@ $(document).ready(function () {
 
 
 function getLocation() {
-
+    //get current position
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
