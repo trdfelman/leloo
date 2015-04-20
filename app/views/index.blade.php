@@ -11,9 +11,9 @@
                     {{--
                     <hr class="star-light">
                     --}}
-                    <span class="skills">Lorem ipsum dolor sit amet, consectetuer</span>
+                    <span class="skills"><strong>Leloo</strong> is an app that helps you when going to new places when you're letting loose of yourself. Great companion, just a hit of a button and you will know your current location and places near you (eg. <i>bars, hotels, stores, etc.</i>). If you find this app useful or you have suggestions to improve this app, you may send us a feedback at <strong>Contact</strong> section</span>
+                    <span class="intro"><p>To <strong>start</strong>&nbsp;select place/s you want know about, then hit <strong>Go</strong>.</p></span>
                     <div id="alert-msg">
-
                     </div>
                 </div>
                                                        {{ Form::select('opt', ['Places'], null, ['class' => 'js-example-basic-multiple form-control', 'multiple'=>'multiple','id'=>'selecta']) }}
@@ -23,12 +23,6 @@
                     <p></p>
                     <button id="cmdSubmit" type="submit" class="btn btn-success btn-lg">Go</button>
                     <button id="noSubmit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</button>
-
-                </div>
-                <div class="col-lg-12 text-center">
-                       <div class="intro-text">
-                            <span class="intro"><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui</p></span>
-                       </div>
                 </div>
             </div>
         </div>
@@ -43,14 +37,10 @@
                 <h2 id="your">You are here!</h2>
                 <div id="map_holder" >
                     <div id="mapcanvas" style="width: 100%; ">
-
                     </div>
                     <div id="location_container">
-
                     </div>
                  </div>
-
-
             </div>
         </div>
     </div>
